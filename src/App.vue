@@ -110,7 +110,6 @@
 </template>
 
 <script>
-// Načítání dat
 import { maturitniData } from './data.js';
 import { programovaniData } from './dataProgramovani.js';
 import { cestinaData } from './dataCestina.js';
@@ -125,7 +124,6 @@ export default {
         cestina: cestinaData,
         epo: epoData
       },
-      // Databáze perfektně zvládnutých okruhů (100% skóre)
       dokonceneOkruhy: {
         elektronika: [],
         programovani: [],
@@ -150,29 +148,24 @@ export default {
       if (!this.vybranyOkruh || !this.vybranyOkruh.kviz) return null;
       return this.vybranyOkruh.kviz[this.indexAktualniOtazky];
     },
-    // Vypočítá procenta pro Level Bar předmětu
     progressPredmetu() {
       if (!this.klicPredmetu || this.seznamOtazek.length === 0) return 0;
       const pocetHotovych = this.dokonceneOkruhy[this.klicPredmetu].length;
       const celkem = this.seznamOtazek.length;
       return Math.round((pocetHotovych / celkem) * 100);
     },
-    // Vypočítá, jak daleko jsme v aktuálním kvízu
     progressKvizu() {
       if (!this.vybranyOkruh || !this.vybranyOkruh.kviz.length) return 0;
       return Math.round((this.indexAktualniOtazky / this.vybranyOkruh.kviz.length) * 100);
     }
   },
   mounted() {
-    // Přidáme "posluchač" na zmáčknutí klávesy ESCAPE po startu aplikace
     window.addEventListener('keydown', this.krokZpet);
   },
   unmounted() {
-    // Musíme posluchač odstranit, když se aplikace zavře
     window.removeEventListener('keydown', this.krokZpet);
   },
   methods: {
-    // Pomocná funkce pro náhodné zamíchání pole (Fisher-Yates algoritmus)
     zamichejPole(pole) {
       let zamichane = [...pole]; 
       for (let i = zamichane.length - 1; i > 0; i--) {
@@ -181,9 +174,8 @@ export default {
       }
       return zamichane;
     },
-    // Logika pro tlačítko ESCAPE
     krokZpet(event) {
-      if (event && event.key !== 'Escape') return; // Reaguje jen na ESC
+      if (event && event.key !== 'Escape') return;
       
       if (this.stavAplikace === 'kviz' || this.stavAplikace === 'vysledky') {
         this.stavAplikace = 'detailOkruhu';
@@ -212,7 +204,6 @@ export default {
       this.odpovezeno = false;
       this.zvolenyIndex = null;
 
-      // ZDE SE APLIKUJE MÍCHÁNÍ: Zamícháme otázky aktuálně vybraného okruhu
       if (this.vybranyOkruh && this.vybranyOkruh.kviz) {
         this.vybranyOkruh.kviz = this.zamichejPole(this.vybranyOkruh.kviz);
       }
@@ -243,7 +234,6 @@ export default {
     },
     dokoncitKviz() {
       this.stavAplikace = 'vysledky';
-      // Pokud má všechno správně, získá achievement (odškrtnutí okruhu)
       if (this.skore === this.vybranyOkruh.kviz.length) {
         if (!this.dokonceneOkruhy[this.klicPredmetu].includes(this.vybranyOkruh.id)) {
           this.dokonceneOkruhy[this.klicPredmetu].push(this.vybranyOkruh.id);
@@ -256,116 +246,114 @@ export default {
 
 <style>
 body {
-    background-color: #121212;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
 }
 .app-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 .hlavni-nadpis { color: #4CAF50; font-size: 2.5em; margin-bottom: 5px; }
 h2 { color: #ffffff; margin-bottom: 20px; }
 .upozorneni { color: #ff9800; font-style: italic; margin-top: 30px; }
 
-/* Progress Bary (Level Bary) */
 .progress-container {
-    margin: 20px auto 30px auto;
-    max-width: 500px;
-    text-align: center;
+  margin: 20px auto 30px auto;
+  max-width: 500px;
+  text-align: center;
 }
 .progress-bar {
-    background-color: #333;
-    border-radius: 10px;
-    height: 18px;
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid #555;
+  background-color: #333;
+  border-radius: 10px;
+  height: 18px;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #555;
 }
 .progress-fill {
-    background-color: #4CAF50;
-    height: 100%;
-    transition: width 0.5s ease-in-out;
+  background-color: #4CAF50;
+  height: 100%;
+  transition: width 0.5s ease-in-out;
 }
 .kviz-progress {
-    max-width: 100%;
-    margin-top: 0;
+  max-width: 100%;
+  margin-top: 0;
 }
 .kviz-fill {
-    background-color: #2196F3; /* Modrá barva pro kvízový postup */
+  background-color: #2196F3;
 }
 .progress-text {
-    display: block;
-    margin-top: 8px;
-    color: #aaaaaa;
-    font-size: 15px;
-    font-weight: bold;
+  display: block;
+  margin-top: 8px;
+  color: #aaaaaa;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .tlacitka-grid {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 .btn {
-    background-color: #2c2c2c;
-    color: white;
-    border: 2px solid #4CAF50;
-    padding: 15px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.2s ease-in-out;
-    width: 250px;
+  background-color: #2c2c2c;
+  color: white;
+  border: 2px solid #4CAF50;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  width: 250px;
 }
 .btn:hover:not(:disabled) {
-    background-color: #4CAF50;
-    color: #121212;
-    transform: scale(1.05);
+  background-color: #4CAF50;
+  color: #121212;
+  transform: scale(1.05);
 }
 .btn-okruh { width: 100%; max-width: 400px; text-align: left; padding-left: 20px; }
-/* Zvýraznění hotového okruhu */
 .btn-okruh.hotovo {
-    border-color: #4CAF50;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
-    color: #4CAF50;
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+  color: #4CAF50;
 }
 
 .btn-zpet {
-    background: none;
-    border: none;
-    color: #aaaaaa;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    text-decoration: underline;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  background: none;
+  border: none;
+  color: #aaaaaa;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .btn-zpet:hover { color: #ffffff; }
 
 .tlacitka-vedle-sebe { display: flex; justify-content: center; gap: 20px; margin-top: 30px;}
 .teorie-box {
-    background-color: #1e1e1e;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 5px solid #4CAF50;
-    text-align: left;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    font-size: 17px;
+  background-color: #1e1e1e;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 5px solid #4CAF50;
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  font-size: 17px;
 }
 .oznameni-hotovo {
-    color: #4CAF50;
-    font-weight: bold;
-    margin-bottom: 15px;
-    font-size: 18px;
+  color: #4CAF50;
+  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
 .btn-akce { background-color: #4CAF50; color: #121212; font-weight: bold; }
@@ -385,4 +373,40 @@ h2 { color: #ffffff; margin-bottom: 20px; }
 .skore-text { font-size: 24px; color: #ffffff; }
 .uspech-text { color: #4CAF50; font-size: 18px; font-weight: bold; margin-top: 10px; }
 .neuspech-text { color: #ff9800; font-size: 18px; font-weight: bold; margin-top: 10px; }
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .hlavni-nadpis { 
+    font-size: 1.8em; 
+  }
+  .btn {
+    width: 100%;
+    max-width: 320px; 
+  }
+  .btn-okruh, .btn-moznost {
+    max-width: 100%;
+    padding: 12px 15px; 
+  }
+  .tlacitka-vedle-sebe {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .teorie-box {
+    padding: 15px;
+    font-size: 15px;
+  }
+  .sekce-kviz, .sekce-vysledky {
+    padding: 15px;
+  }
+  .otazka-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .kviz-hlavicka {
+    font-size: 14px;
+  }
+}
 </style>
