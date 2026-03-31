@@ -1,18 +1,45 @@
-# Vue 3 + TypeScript + Vite
+NÁZEV PROJEKTU: MATURITNÍ TRENAŽÉR
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+POPIS PROJEKTU (ČEŠTINA)
+Maturitní trenažér je interaktivní webová aplikace určená pro komplexní přípravu k maturitním zkouškám. Systém obsahuje rozsáhlou databázi s více než 3000 otázkami, které pokrývají odborné i všeobecné předměty jako Elektronika, Programování, EPO a Český jazyk.
 
-## Recommended IDE Setup
+KLÍČOVÉ FUNKCE
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Databáze otázek: Kompletní zpracování maturitních okruhů pro SŠEE Sokolnice.
 
-## Type Support For `.vue` Imports in TS
+Sledování pokroku: Vizuální ukazatele a systém úrovní pro každý studijní předmět.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+Plná responzivita: Optimalizace rozvržení pro mobilní telefony, tablety i stolní počítače.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Logika kvízu: Algoritmus pro náhodné míchání otázek a okamžité vyhodnocování úspěšnosti.
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+TECHNOLOGICKÝ STACK
+
+Frontend framework: Vue.js 3
+
+Stylování: CSS3 s využitím moderního Flexbox layoutu.
+
+Vývojové prostředí: Vite.
+
+PROJECT TITLE: EXAM TRAINER
+
+PROJECT DESCRIPTION (ENGLISH)
+Exam Trainer is an interactive web application designed for comprehensive preparation for final school-leaving exams. The system features an extensive database of over 3,000 questions covering technical and general subjects such as Electronics, Programming, EPO, and Czech Language.
+
+KEY FEATURES
+
+Question Database: Complete coverage of exam topics for SŠEE Sokolnice.
+
+Progress Tracking: Visual progress bars and leveling systems for each subject.
+
+Full Responsiveness: Layout optimization for smartphones, tablets, and desktop computers.
+
+Quiz Logic: An algorithm for random question shuffling and real-time performance evaluation.
+
+TECH STACK
+
+Frontend framework: Vue.js 3
+
+Styling: CSS3 using modern Flexbox layout.
+
+Build tool: Vite.
