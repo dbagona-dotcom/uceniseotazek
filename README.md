@@ -1,45 +1,51 @@
-NÁZEV PROJEKTU: MATURITNÍ TRENAŽÉR
+# 🎓 Maturitní Trenažér
 
-POPIS PROJEKTU (ČEŠTINA)
-Maturitní trenažér je interaktivní webová aplikace určená pro komplexní přípravu k maturitním zkouškám. Systém obsahuje rozsáhlou databázi s více než 3000 otázkami, které pokrývají odborné i všeobecné předměty jako Elektronika, Programování, EPO a Český jazyk.
+> *"Protože učení se nemusí být nuda."*
 
-KLÍČOVÉ FUNKCE
+Interaktivní webová aplikace která tě dostane přes maturitu – nebo tě aspoň přesvědčí, že ses snažil. Více než **3000 otázek** z odborných i všeobecných předmětů, systém úrovní a vizuální sledování pokroku.
 
-Databáze otázek: Kompletní zpracování maturitních okruhů pro SŠEE Sokolnice.
+Dělaná přímo pro SŠEE Sokolnice. 🎯
 
-Sledování pokroku: Vizuální ukazatele a systém úrovní pro každý studijní předmět.
+---
 
-Plná responzivita: Optimalizace rozvržení pro mobilní telefony, tablety i stolní počítače.
+## ⚡ Technologie
 
-Logika kvízu: Algoritmus pro náhodné míchání otázek a okamžité vyhodnocování úspěšnosti.
+| Vrstva | Technologie |
+|--------|------------|
+| Frontend | Vue.js 3 |
+| Stylování | CSS3 + Flexbox |
+| Build tool | Vite |
 
-TECHNOLOGICKÝ STACK
+---
 
-Frontend framework: Vue.js 3
+## 🚀 Hlavní funkce
 
-Stylování: CSS3 s využitím moderního Flexbox layoutu.
+**📚 Databáze otázek**
+Kompletní pokrytí maturitních okruhů – Elektronika, Programování, EPO, Český jazyk. 3000+ otázek a přibývá.
 
-Vývojové prostředí: Vite.
+**📊 Sledování pokroku**
+Vizuální progress bary a systém úrovní pro každý předmět. Vidíš přesně kde jsi dobrý a kde tě maturita pohltí.
 
-PROJECT TITLE: EXAM TRAINER
+**🎲 Chytrá logika kvízu**
+Algoritmus náhodně míchá otázky a okamžitě vyhodnocuje úspěšnost. Žádné memorování pořadí, jen čisté znalosti.
 
-PROJECT DESCRIPTION (ENGLISH)
-Exam Trainer is an interactive web application designed for comprehensive preparation for final school-leaving exams. The system features an extensive database of over 3,000 questions covering technical and general subjects such as Electronics, Programming, EPO, and Czech Language.
+**📱 Plná responzivita**
+Funguje na mobilu cestou do školy, na tabletu v posteli, na počítači v panice den před maturitou.
 
-KEY FEATURES
+---
 
-Question Database: Complete coverage of exam topics for SŠEE Sokolnice.
+## 🛠️ Instalace
+```bash
+npm install
+npm run dev
+```
 
-Progress Tracking: Visual progress bars and leveling systems for each subject.
+---
 
-Full Responsiveness: Layout optimization for smartphones, tablets, and desktop computers.
+## 📸 Demo
 
-Quiz Logic: An algorithm for random question shuffling and real-time performance evaluation.
+🔗 [Otevřít aplikaci](https://fc777q-5173.csb.app/)
 
-TECH STACK
+---
 
-Frontend framework: Vue.js 3
-
-Styling: CSS3 using modern Flexbox layout.
-
-Build tool: Vite.
+*Vytvořeno s ☕ a mírnou existenciální krizí před maturitou.*
